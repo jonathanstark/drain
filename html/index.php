@@ -61,7 +61,7 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
             $name.= '_' . $filesafe_subject;
         }
         $filename = $output_dir . $name . '.md';
-        echo $filename . "\n"; continue;
+        // echo $filename . "\n"; continue;
         #
         # Format the date if you like
         if (isset($broadcast->send_at)) {

@@ -1,4 +1,9 @@
 <?php
+#
+# Make a copy of this file named `private.php`
+# and edit the settings in that file to config
+# this installation. jstark December 18, 2016
+#
 define('API_KEY', 'asdf1234asdf1234asdf'); // You can find this on your user page in drip: https://www.getdrip.com/user/edit
 define('ACCOUNT_ID', '1234567'); // You can find this in your drip url ala: https://jstark.co/2gPfFP5
 define('APP_NAME', 'MyAppName'); // An arbitrary name you make up

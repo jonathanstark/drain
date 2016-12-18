@@ -4,7 +4,13 @@ require '../config/private.php';
 # Set up the template for the curl cmd
 $template = 'curl -H "User-Agent: %s" -H "Content-Type: application/json" -u "%s" "https://api.getdrip.com/v2/%s/broadcasts?status=%s&page=%s"';
 #
+# Make sure a dir with perms 777 exists in webroot
+$output_dir = $_SERVER['DOCUMENT_ROOT'] . '/output/' . time() . '/';
+if (!file_exists($output_dir)) {
+    mkdir($output_dir, 0700, true);
+}
 #
+# Loop through broadcasts in chunks of 100
 for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
     #
     # Inject user specific vars into cmd
@@ -46,7 +52,7 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
             $filesafe_subject = preg_replace( "/[^a-zA-Z0-9_\[\]]/", "", $filesafe_subject);
             $name.= '_' . $filesafe_subject;
         }
-        $filename = $_SERVER['DOCUMENT_ROOT'] . '/output/' . $name . '.md';
+        $filename = $output_dir . $name . '.md';
         // echo $filename . "\n"; continue;
         #
         # Format the date if you like

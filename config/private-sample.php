@@ -11,4 +11,5 @@ define('STATUS_FILTER', 'sent'); // Possible values: draft, scheduled, sent, all
 define('MAX_ITERATIONS', 5); // Avoid infinite loop, just in case (increase this is you have more than 500 broadcasts)
 define('DELETE_EVERYTHING_AFTER_STRING', '{%'); // A string found near the end of each message used to trim off everything after
 define('PAGE_FOOTER', "----\n\n[« Back to home](https://mysite.com/)"); // Arbitrary content that will be appended to the end of each file
-define('APPEND_SUBJECT_TO_FILENAME', true); //
+define('APPEND_SUBJECT_TO_FILENAME', true); // Just what it says, yo
+define('OVERWRITE', true); // Set to true to overwrite previous files, false to create in new subdirectory

@@ -7,9 +7,14 @@ $template = 'curl --silent -H "User-Agent: %s" -H "Content-Type: application/jso
 #
 # Make sure a dir with perms 777 exists in webroot
 if (empty($_SERVER['DOCUMENT_ROOT'])) {
-    $output_dir = getcwd() . '/output/' . time() . '/';
+    $output_dir = getcwd() . '/output/';
 } else {
-    $output_dir = $_SERVER['DOCUMENT_ROOT'] . '/output/' . time() . '/';
+    $output_dir = $_SERVER['DOCUMENT_ROOT'] . '/output/';
+}
+#
+# Branch based on overwrite setting
+if (!OVERWRITE) {
+    $output_dir.=  time() . '/';
 }
 // die("$output_dir \n");
 if (!file_exists($output_dir)) {

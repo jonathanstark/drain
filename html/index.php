@@ -82,7 +82,7 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
             $body = $broadcast->html_body;
         }
         $body = html_entity_decode($body);
-        $body = str_ireplace(array('<p>', '</p>', '<div>', '</div>', '<ul>', '</ul>', '<ol>', '</ol>', '</li>', '</h2>', '</h3>', '</h4>', '<br />', '&#9;'), '', $body);
+        $body = str_ireplace(array('<p>', '</p>', '<div>', '</div>', '<ul>', '</ul>', '<ol>', '</ol>', '</li>', '</h1>', '</h2>', '</h3>', '</h4>', '<br />', '&#9;'), '', $body);
         // $body = str_ireplace(array('<strong>', '</strong>'), '**', $body);
         // $body = str_ireplace(array('<em>', '</em>'), '_', $body);
         $body = str_ireplace('<blockquote>', "<blockquote>\n\n", $body);

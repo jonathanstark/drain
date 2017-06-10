@@ -81,17 +81,19 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
         } else {
             $body = $broadcast->html_body;
         }
+        $body = html_entity_decode($body);
         $body = str_ireplace(array('<p>', '</p>', '<div>', '</div>', '<ul>', '</ul>', '<ol>', '</ol>', '</li>', '</h2>', '</h3>', '</h4>', '<br />', '&#9;'), '', $body);
-        $body = str_ireplace(array('<strong>', '</strong>'), '**', $body);
-        $body = str_ireplace(array('<em>', '</em>'), '_', $body);
+        // $body = str_ireplace(array('<strong>', '</strong>'), '**', $body);
+        // $body = str_ireplace(array('<em>', '</em>'), '_', $body);
+        $body = str_ireplace('<blockquote>', "<blockquote>\n\n", $body);
+        $body = str_ireplace('</blockquote>', "\n\n</blockquote>", $body);
         $body = str_ireplace('<h1>', '# ', $body);
         $body = str_ireplace('<h2>', '## ', $body);
         $body = str_ireplace('<h3>', '### ', $body);
         $body = str_ireplace('<h4>', '#### ', $body);
+        $body = str_ireplace('	<li>', '<li>', $body);
         $body = str_ireplace('<li>', '* ', $body);
-        $body = str_ireplace('&#8212;', '—', $body);
-        $body = str_ireplace('&nbsp;', ' ', $body);
-        $body = trim($body);
+        $body = trim(html_entity_decode($body));
         #
         # Assemble the file contents
         $contents = $title . "\n";

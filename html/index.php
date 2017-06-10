@@ -102,6 +102,33 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
         $contents.= $body . "\n\n";
         $contents.= PAGE_FOOTER;
         #
+        # Add curly quotes
+        $in_tag = false;
+        $in_quotation = false;
+        $length = strlen($contents);
+        for($i = 0; $i <= $length; $i++) {
+            $char = substr($contents, $i, 1);
+            if ($char == "'") {
+                $contents = substr_replace($contents, '’', $i, 1);
+            } else if ($char == '<') {
+                $in_tag = true;
+            } else if ($char == '>') {
+                $in_tag = false;
+            } else if ($char == '"') {
+                if ($in_tag) {
+                    # do nothing cuz, duh... we're in a tag
+                } else {
+                    if ($in_quotation) {
+                        $contents = substr_replace($contents, '”', $i, 1);
+                        $in_quotation = false;
+                    } else {
+                        $contents = substr_replace($contents, '“', $i, 1);
+                        $in_quotation = true;
+                    }
+                }
+            }
+        }
+        #
         # Output content to file
         file_put_contents($filename, $contents);
     }

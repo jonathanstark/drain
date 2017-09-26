@@ -58,12 +58,12 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
         if (APPEND_SUBJECT_TO_FILENAME) {
             #
             # Create a filesystem safe subject
-            $filesafe_subject = trim($broadcast->subject);
+            $filesafe_subject = trim(strtolower($broadcast->subject));
             $filesafe_subject = str_replace('==', 'equal', $filesafe_subject);
             $filesafe_subject = str_replace('!=', 'do not equal', $filesafe_subject);
             $filesafe_subject = preg_replace( "/[^a-zA-Z0-9 _\-\[\]]/", "", $filesafe_subject);
-            $filesafe_subject = str_replace(' ', '_', $filesafe_subject);
-            $name.= '_' . $filesafe_subject;
+            $filesafe_subject = str_replace(' ', '-', $filesafe_subject);
+            $name.= '-' . $filesafe_subject;
         }
         $filename = $output_dir . $name . '.md';
         // echo $filename . "\n"; continue;

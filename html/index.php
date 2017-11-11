@@ -70,9 +70,9 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
         #
         # Format the date if you like
         if (isset($broadcast->send_at)) {
-            $date = 'Sent on ' . date('F jS, Y', strtotime($broadcast->send_at));
+            $date = 'Sent by ' . AUTHOR . ' on ' . date('F jS, Y', strtotime($broadcast->send_at));
         } else {
-            $date = 'Written on ' . date('F jS, Y', strtotime($broadcast->created_at));
+            $date = 'Written ' . AUTHOR . ' on ' . date('F jS, Y', strtotime($broadcast->created_at));
         }
         #
         # Clean up the body a bit

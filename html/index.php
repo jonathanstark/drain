@@ -3,7 +3,7 @@ require '../config/private.php';
 date_default_timezone_set('America/New_York');
 #
 # Set up the template for the curl cmd
-$template = 'curl --silent -H "User-Agent: %s" -H "Content-Type: application/json" -u "%s:" "https://api.getdrip.com/v2/%s/broadcasts?status=%s&page=%s"';
+$template = 'curl -H "User-Agent: %s" -H "Content-Type: application/json" -u "%s:" "https://api.getdrip.com/v2/%s/broadcasts?status=%s&page=%s"';
 #
 # Make sure a dir with perms 777 exists in webroot
 if (empty($_SERVER['DOCUMENT_ROOT'])) {

@@ -53,7 +53,7 @@ for ($page_number=1; $page_number < MAX_ITERATIONS; $page_number++) {
         #
         # Build a filename using the id and optionally filesafe subject
         // $name = str_pad($broadcast->id, 10, '0', STR_PAD_LEFT);
-        $name = date('Ymd', strtotime($broadcast->send_at));
+        $name = date('Ymd-Hi', strtotime($broadcast->send_at));
         #
         if (APPEND_SUBJECT_TO_FILENAME) {
             #

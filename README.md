@@ -1,6 +1,13 @@
 Drain
 ====
 
+To configure Drain:
+
+1. Duplicate `config/private-sample.php`
+2. Name the new file `private.php`
+3. Edit `private.php` as necessary (see comments in file for more info)
+
+
 To run at the command line:
 
 1. Open your terminal application
